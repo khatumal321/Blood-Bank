@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="profile.css">
+    <title>Blood-Bank</title>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.1/firebase-auth.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBKHxMZ5KCsYSZno2UMi5_dIEn0aDOODqA",
+    authDomain: "blood-bank-e2ae8.firebaseapp.com",
+    databaseURL: "https://blood-bank-e2ae8.firebaseio.com",
+    projectId: "blood-bank-e2ae8",
+    storageBucket: "",
+    messagingSenderId: "119173715663",
+    appId: "1:119173715663:web:5723525528e16295"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+</head>
+<body>
+    <!------------------- navbar ------------------->
+<div class="topnav" id="myTopnav">
+    <a href="home.html" class="active"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+    <a href="donner.html"><i class="fa fa-male" aria-hidden="true"></i>All Doner</a>
+    <a href="logout.html" id="logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  
+  <!------------------ profile Card --------------->
+<br>
+<!-- <h2 style="text-align:center">User Profile Card</h2> -->
+<br>
+<div id="card2" class="card">
+   <img  id="image" style="width:100%"><br>
+  <span class="title">Name: </span><span id="name"></span>
+  <span class="title">Email Address: </span><span id="email"></span>
+  <span class="title">Phone Number: </span><span id="number"></span>
+  <span class="title">Age: </span><span id="age"></span>
+  <span class="title">City Name: </span><span id="city"></span>
+  <div style="margin: 24px 0;">
+    <a href="#" id="inbox" class="notification"><i class="fa fa-inbox" aria-hidden="true"></i>
+      <span>Donner Request</span>
+      <span class="badge" id="inboxNumbr">0</span>
+    </a>
+    <a href="#" id="notification" class="notification"><i class="fa fa-inbox" aria-hidden="true"></i>
+      <span>Notification</span>
+      <span class="badge" id="notiNo">0</span>
+    </a>  
+  </div>
+  <p><button onclick="edit2()"><i class="fa fa-pencil-square-o" aria-hidden="true" ></i>Edit</button></p>
+</div>
+<!--==================== Edit update=================== -->
+
+<div id="mainDiv" class="card bg-light">
+  <article class="card-body mx-auto" style="max-width: 400px;">
+    <h4 class="card-title mt-3 text-center">Create Account</h4>
+    <p class="text-center">Get started with your free account</p>
+    <p class="divider-text">
+          <span class="bg-light">OR</span>
+      </p>
+      <form action="#" id="reset2">
+    <div class="form-group input-group">
+      <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+       </div>
+          <input id="username" name="" class="form-control" placeholder="Full Name" type="text">
+      </div>
+      
+      <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+      </div>
+      <select class="custom-select" style="max-width: 120px;">
+          <option selected="">+92</option>
+          <option value="1">+972</option>
+          <option value="2">+198</option>
+          <option value="3">+701</option>
+      </select>
+        <input id="phone" name="" class="form-control" placeholder="Phone number" type="text">
+      </div> <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="far fa-file-image"></i> </span>
+      </div>
+          <input id="file1" name="" class="form-control" type="file">
+      </div> <!-- form-group end.// -->
+      
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+      </div>
+          <input id="age1" class="form-control" placeholder="Age" type="text">
+      </div> <!-- form-group// --> 
+  
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-map-marker"></i>
+              </span>
+      </div>
+          <input id="city1" class="form-control" placeholder="City" type="text">
+      </div> <!-- form-group// --> 
+  
+      <div class="form-group">
+          <input type="button" id="update" value="Create Account" class="btn btn-primary btn-block">
+      </div> <!-- form-group// -->      
+  </form>
+  </article>
+  </div> <!-- card.// -->
+  </div> 
+  
+  </article>
+
+<!-- ===============Request Card=========================== -->
+<div id="requestCard">
+
+</div>
+
+<!-- ===============Accept Card=========================== -->
+<div id="acceptCard">
+
+</div>
+
+<!--===================== footer======================= -->
+<footer class="footer-distributed">
+
+  <div class="footer-left">
+
+    <h3>Blood<span>Bank</span></h3>
+
+    <p class="footer-links">
+      <a href="home.html">Home</a>
+      ·
+      <a href="profile.html">My Account</a>
+      ·
+      <a href="donner.html">All Donner</a>
+      ·
+      <a href="#">logout</a>
+    </p>
+
+    <p class="footer-company-name">Design by - khatumal &copy; 2019</p>
+  </div>
+
+  <div class="footer-center">
+
+    <div>
+      <i class="fa fa-map-marker"></i>
+      <p><span>Doraji colony</span> Karachi, Pakistan</p>
+    </div>
+
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>03483705155</p>
+    </div>
+
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="mailto:khatumal10@gmail.com">khatumal10@gmail.com</a></p>
+    </div>
+
+  </div>
+
+  <div class="footer-right">
+
+    <p class="footer-company-about">
+      <span>About the Blood-Bank</span>
+      Blood is a body fluid in humans and other animals that delivers necessary substances such as nutrients and oxygen to the cells and transports metabolic waste products away from those same cells    </p>
+
+    <div class="footer-icons">
+
+      <a href="https://www.facebook.com/Khatumal55"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com/Khatumal7"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/khatumal321"><i class="fa fa-github"></i></a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="profile.js"></script>
+</body>
+</html>

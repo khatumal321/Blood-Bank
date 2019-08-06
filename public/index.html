@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.1/firebase-auth.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBKHxMZ5KCsYSZno2UMi5_dIEn0aDOODqA",
+    authDomain: "blood-bank-e2ae8.firebaseapp.com",
+    databaseURL: "https://blood-bank-e2ae8.firebaseio.com",
+    projectId: "blood-bank-e2ae8",
+    storageBucket: "",
+    messagingSenderId: "119173715663",
+    appId: "1:119173715663:web:5723525528e16295"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+</head>
+<body>
+        <div class="cssload-dots">
+                <div class="cssload-dot"></div>
+                <div class="cssload-dot"></div>
+                <div class="cssload-dot"></div>
+                <div class="cssload-dot"></div>
+                <div class="cssload-dot"></div>
+            </div>
+            
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <filter id="goo">
+                        <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="12" ></feGaussianBlur>
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0	0 1 0 0 0	0 0 1 0 0	0 0 0 18 -7" result="goo" ></feColorMatrix>
+                        <!--<feBlend in2="goo" in="SourceGraphic" result="mix" ></feBlend>-->
+                    </filter>
+                </defs>
+            </svg>
+            <!-- ================PWA====================== -->
+
+            <!-- <div id="Blood-Bank">
+
+            </div> -->
+            <script src="index.js"></script>
+</body>
+</html>
